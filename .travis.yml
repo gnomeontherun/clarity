@@ -42,4 +42,4 @@ before_script:
   - npm install -g gemini@5.2.0 html-reporter@2.0.1
 
 script:
-  - npm run $TEST_SUITE # run unit test and css regression test sets in parallel
+  - node scripts/travis
