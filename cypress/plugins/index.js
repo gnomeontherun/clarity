@@ -25,9 +25,8 @@ module.exports = (on, config) => {
   config.env.CLARITY_THEME = process.env.CLARITY_THEME || 'light';
 
   // If we don't have a BATCH ID already, try to build one from Travis then fallback.
-  if (!config.env.APPLITOOLS_BATCH_ID) {
-    config.env.APPLITOOLS_BATCH_ID = `localhost-${config.env.CLARITY_THEME}-${Date.now()}`;
-  }
+  config.env.APPLITOOLS_BATCH_ID =
+    process.env.APPLITOOLS_BATCH_ID || `localhost-${config.env.CLARITY_THEME}-${Date.now()}`;
 
   return config;
 };
