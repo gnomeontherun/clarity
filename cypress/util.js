@@ -4,11 +4,13 @@
  * The full license information can be found in LICENSE in the root directory of this project.
  */
 
+console.log();
+
 if (!process.env.APPLITOOLS_BATCH_ID) {
   process.env.APPLITOOLS_BATCH_ID = `localhost-${Date.now()}`;
 }
-if (!process.env.APPLITOOLS_BATCH_NAME) {
-  process.env.APPLITOOLS_BATCH_NAME = `localhost`;
+if (!process.env.CLARITY_THEME) {
+  process.env.CLARITY_THEME = 'light';
 }
 
 export function checkEyes(testName, selector = '.content-area') {
@@ -22,8 +24,7 @@ export function checkEyes(testName, selector = '.content-area') {
 export function setup(testName) {
   cy.eyesOpen({
     appName: 'Clarity',
-    testName: testName,
-    batchName: process.env.APPLITOOLS_BATCH_NAME,
+    testName: `${testName} - ${process.env.CLARITY_THEME}`,
     batchId: process.env.APPLITOOLS_BATCH_ID,
   });
 }
