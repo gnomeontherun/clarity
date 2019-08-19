@@ -42,7 +42,7 @@
     "test:visual": "npm-run-all 'test:visual:light -- {*}' 'test:visual:dark -- {*}' --",
     "test:visual:light": "./scripts/docker-cdc.js -t",
     "test:visual:dark": "./scripts/docker-cdc.js -t -c dark",
-    "test:cypress": "npm-run-all test:cypress:light test:cypress:dark",
+    "test:cypress": "npm-run-all test:cypress:light test:cypress:dark --continue-on-error",
     "test:cypress:run": "cypress run",
     "test:cypress:light": "cross-env CLARITY_THEME=light server-test start http-get://localhost:4200/ test:cypress:run",
     "test:cypress:dark": "cross-env CLARITY_THEME=dark server-test start:dark http-get://localhost:4200/ test:cypress:run",

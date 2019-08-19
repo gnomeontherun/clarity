@@ -13,7 +13,7 @@ if (!process.env.CLARITY_THEME) {
 
 export function checkEyes(testName, selector = '.content-area') {
   cy.eyesCheckWindow({
-    tag: testName,
+    tag: `${testName} - ${process.env.CLARITY_THEME}`,
     sizeMode: 'selector',
     selector: selector,
   });
