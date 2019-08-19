@@ -4,14 +4,15 @@ node_js:
 env:
   global:
   - CXX=g++-4.8
-  - APPLITOOLS_BATCH_ID=`echo ${TRAVIS_PULL_REQUEST_SHA:=$TRAVIS_JOB_ID}`
+#  - APPLITOOLS_BATCH_ID=`echo ${TRAVIS_PULL_REQUEST_SHA:=$TRAVIS_JOB_ID}`
   matrix:
-  - TEST_SUITE='test:travis'
+#  - TEST_SUITE='test:travis'
 #  - TEST_SUITE='test:visual set1'
 #  - TEST_SUITE='test:visual set2'
 #  - TEST_SUITE='test:visual set3'
 #  - TEST_SUITE='test:visual set4'
-  - TEST_SUITE='test:cypress'
+  - TEST_SUITE='test:cypress:light'
+  - TEST_SUITE='test:cypress:dark'
 sudo: required
 dist: trusty
 group: edge

@@ -5,7 +5,11 @@
  */
 
 if (!process.env.APPLITOOLS_BATCH_ID) {
-  process.env.APPLITOOLS_BATCH_ID = `localhost-${Date.now()}`;
+  if (process.env.TRAVIS_PULL_REQUEST_SHA) {
+    process.env.APPLITOOLS_BATCH_ID = `${process.env.TRAVIS_PULL_REQUEST_SHA}:=${process.env.TRAVIS_COMMIT}`;
+  } else {
+    process.env.APPLITOOLS_BATCH_ID = `localhost-${Date.now()}`;
+  }
 }
 if (!process.env.CLARITY_THEME) {
   process.env.CLARITY_THEME = 'light';

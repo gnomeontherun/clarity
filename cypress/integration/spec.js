@@ -13,7 +13,7 @@ import { TogglesSpec } from './toggles';
 // Organized this way to make one batch for all of the tests in Applitools,
 // otherwise it treats each file as a different batch and makes it hard to
 // see a single run as one unit.
-describe('Clarity', () => {
+describe(`Clarity - ${process.env.CLARITY_THEME}`, () => {
   // ButtonSpecs();
   CheckboxesSpec();
   ColorSpec();
