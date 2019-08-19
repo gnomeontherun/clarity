@@ -4,6 +4,7 @@ node_js:
 env:
   global:
   - CXX=g++-4.8
+  - APPLITOOLS_BATCH_ID=`echo ${TRAVIS_PULL_REQUEST_SHA:=$TRAVIS_JOB_ID}`
   matrix:
   - TEST_SUITE='test:travis'
 #  - TEST_SUITE='test:visual set1'
@@ -35,7 +36,6 @@ cache:
   directories:
   - node_modules
 script:
-- export APPLITOOLS_BATCH_ID=`echo ${TRAVIS_PULL_REQUEST_SHA:=$TRAVIS_COMMIT}`
 - node scripts/travis
 #jobs:
 #  include:
