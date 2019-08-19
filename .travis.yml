@@ -10,7 +10,7 @@ env:
 #  - TEST_SUITE='test:visual set2'
 #  - TEST_SUITE='test:visual set3'
 #  - TEST_SUITE='test:visual set4'
-  - TEST_SUITE='test:cypress:light'
+  - TEST_SUITE='test:cypress'
 sudo: required
 dist: trusty
 group: edge
