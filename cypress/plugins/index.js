@@ -26,11 +26,7 @@ module.exports = (on, config) => {
 
   // If we don't have a BATCH ID already, try to build one from Travis then fallback.
   if (!config.env.APPLITOOLS_BATCH_ID) {
-    if (process.env.TRAVIS_PULL_REQUEST_SHA) {
-      config.env.APPLITOOLS_BATCH_ID = `${process.env.TRAVIS_PULL_REQUEST_SHA}:=${process.env.TRAVIS_COMMIT}`;
-    } else {
-      config.env.APPLITOOLS_BATCH_ID = `localhost-${config.env.CLARITY_THEME}-${Date.now()}`;
-    }
+    config.env.APPLITOOLS_BATCH_ID = `localhost-${config.env.CLARITY_THEME}-${Date.now()}`;
   }
 
   return config;
