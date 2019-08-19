@@ -4,8 +4,6 @@
  * The full license information can be found in LICENSE in the root directory of this project.
  */
 
-console.log();
-
 if (!process.env.APPLITOOLS_BATCH_ID) {
   process.env.APPLITOOLS_BATCH_ID = `localhost-${Date.now()}`;
 }
@@ -26,5 +24,6 @@ export function setup(testName) {
     appName: 'Clarity',
     testName: `${testName} - ${process.env.CLARITY_THEME}`,
     batchId: process.env.APPLITOOLS_BATCH_ID,
+    batchName: process.env.APPLITOOLS_BATCH_ID,
   });
 }
