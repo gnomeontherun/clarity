@@ -15,8 +15,6 @@ export function ColorSpec() {
     });
 
     it('default', () => {
-      cy.log(`CLARITY_THEME: ${process.env.CLARITY_THEME}`);
-      cy.log(`APPLITOOLS_BATCH_ID: ${process.env.APPLITOOLS_BATCH_ID}`);
       cy.visit('/color/color-palette');
       checkEyes('/color/color-palette');
     });
