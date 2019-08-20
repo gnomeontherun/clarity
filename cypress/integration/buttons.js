@@ -8,8 +8,9 @@ import { checkEyes, setup } from '../util';
 
 const test = 'Buttons';
 
+// TODO: Enable these tests again after validation
 export function ButtonSpecs() {
-  describe(test, () => {
+  xdescribe(test, () => {
     beforeEach(() => {
       setup(test);
     });

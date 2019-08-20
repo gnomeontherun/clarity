@@ -8,8 +8,9 @@ import { checkEyes, setup } from '../util';
 
 const test = 'Lists';
 
+// TODO: Enable these tests again after validation
 export function ListsSpec() {
-  describe(test, () => {
+  xdescribe(test, () => {
     beforeEach(() => {
       setup(test);
     });

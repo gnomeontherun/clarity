@@ -17,7 +17,8 @@
 }
 
 .sidenav .sidenav-content {
-  height: 100vh;
+  // Remove the header height
+  height: calc(2.5rem - 100vh);
 }
 
 .clr-example {
