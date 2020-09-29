@@ -1,0 +1,20 @@
+{
+  "name": "screenshot",
+  "version": "1.0.0",
+  "description": "Simple screenshotting tool",
+  "scripts": {
+    "start": "node index",
+    "dev:update": "node index --out='./references'",
+    "dev:compare": "node index --compare"
+  },
+  "private": true,
+  "dependencies": {
+    "del": "^6.0.0",
+    "minimist": "^1.2.5",
+    "mkdirp": "^1.0.4",
+    "pixelmatch": "^5.2.1",
+    "pngjs": "^5.0.0",
+    "puppeteer": "^5.3.1",
+    "sharp": "^0.26.1"
+  }
+}
