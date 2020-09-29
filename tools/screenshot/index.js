@@ -17,16 +17,13 @@ const argv = require('minimist')(process.argv.slice(2), {
     href: 'http://localhost:4200/',
     ref: './references',
     compare: false,
+    threshold: 0.05,
   },
 });
 
 const refPath = path.join(__dirname, argv.root, argv.ref, argv.type);
 const outPath = path.join(__dirname, argv.root, argv.out, argv.type);
 const reportPath = path.join(__dirname, argv.root, argv.report, argv.type);
-
-console.log(`refPath: ${refPath}`);
-console.log(`outPath: ${outPath}`);
-console.log(`reportPath: ${reportPath}`);
 
 const changes = [];
 const errors = [];
@@ -40,7 +37,7 @@ function compare(name, file) {
   const diff = new PNG({ width, height });
 
   const size = pixelmatch(ref.data, out.data, diff.data, width, height, {
-    threshold: 0.1,
+    threshold: argv.threshold,
   });
 
   if (size) {

@@ -272,7 +272,13 @@ module.exports = {
     'tree-view/routing',
     'tree-view/pre-selection',
 
-    'timeline/static',
+    {
+      url: 'timeline/static',
+      overlays: [
+        { x: 644, y: 334, width: 48, height: 48 },
+        { x: 325, y: 890, width: 48, height: 48 },
+      ],
+    },
     {
       url: 'timeline/angular',
       overlays: [
