@@ -59,7 +59,7 @@
     }
 
     .datagrid-expandable-caret-icon {
-      @include css-var(color, clr-datagrid-icon-color, $clr-datagrid-icon-color, $clr-use-custom-properties);
+      @include css-var(--color, clr-datagrid-icon-color, $clr-datagrid-icon-color, $clr-use-custom-properties);
       // nudge down for vertical alignment...
       margin-top: $clr_baselineRem_0_125;
       svg {
@@ -234,7 +234,7 @@
           }
         }
 
-        clr-icon {
+        cds-icon {
           vertical-align: middle;
           transform: translate3d(0px, -1 * $clr_baselineRem_1px, 0);
         }
@@ -357,7 +357,7 @@
           }
         }
 
-        clr-icon {
+        cds-icon {
           vertical-align: middle;
           transform: translate3d(0px, -1 * $clr_baselineRem_1px, 0);
         }
@@ -477,7 +477,7 @@
           }
         }
 
-        clr-icon {
+        cds-icon {
           vertical-align: middle;
           transform: translate3d(0px, -1 * $clr_baselineRem_1px, 0);
         }
@@ -691,18 +691,20 @@
         margin-left: $clr_baselineRem_0_25;
         background-repeat: no-repeat;
         background-size: contain;
-        @include css-var(color, clr-color-neutral-500, $clr-color-neutral-500, $clr-use-custom-properties);
-
-        &:hover {
-          @include css-var(color, clr-color-action-600, $clr-color-action-600, $clr-use-custom-properties);
+        cds-icon {
+          @include css-var(--color, clr-color-neutral-500, $clr-color-neutral-500, $clr-use-custom-properties);
         }
 
-        &.datagrid-filter-open {
-          @include css-var(color, clr-color-action-600, $clr-color-action-600, $clr-use-custom-properties);
+        &:hover cds-icon {
+          @include css-var(--color, clr-color-action-600, $clr-color-action-600, $clr-use-custom-properties);
         }
 
-        &.datagrid-filtered {
-          @include css-var(color, clr-color-action-600, $clr-color-action-600, $clr-use-custom-properties);
+        &.datagrid-filter-open cds-icon {
+          @include css-var(--color, clr-color-action-600, $clr-color-action-600, $clr-use-custom-properties);
+        }
+
+        &.datagrid-filtered cds-icon {
+          @include css-var(--color, clr-color-action-600, $clr-color-action-600, $clr-use-custom-properties);
         }
       }
 
@@ -967,11 +969,18 @@
 
       .datagrid-action-toggle {
         @include clr-no-styles-button();
-        @include css-var(color, clr-datagrid-icon-color, $clr-datagrid-icon-color, $clr-use-custom-properties);
+        cds-icon {
+          @include css-var(--color, clr-datagrid-icon-color, $clr-datagrid-icon-color, $clr-use-custom-properties);
+        }
 
-        &:active {
+        &:active cds-icon {
           // Fixed active state on this button for Safari.
-          @include css-var(color, clr-datagrid-action-toggle, $clr-datagrid-action-toggle, $clr-use-custom-properties);
+          @include css-var(
+            --color,
+            clr-datagrid-action-toggle,
+            $clr-datagrid-action-toggle,
+            $clr-use-custom-properties
+          );
         }
       }
 
@@ -1147,7 +1156,7 @@
       flex: 0 0 auto;
 
       &.active {
-        .column-toggle--action {
+        .column-toggle--action cds-icon {
           @include css-var(color, clr-color-action-600, $clr-color-action-600, $clr-use-custom-properties);
         }
       }
@@ -1156,10 +1165,12 @@
         min-width: $clr_baselineRem_0_75;
         padding-left: 0;
         padding-right: 0;
-        @include css-var(color, clr-color-neutral-500, $clr-color-neutral-500, $clr-use-custom-properties);
+        cds-icon {
+          @include css-var(--color, clr-color-neutral-500, $clr-color-neutral-500, $clr-use-custom-properties);
+        }
 
-        &:hover {
-          @include css-var(color, clr-color-action-600, $clr-color-action-600, $clr-use-custom-properties);
+        &:hover cds-icon {
+          @include css-var(--color, clr-color-action-600, $clr-color-action-600, $clr-use-custom-properties);
         }
       }
 
@@ -1362,7 +1373,7 @@
       }
     }
     .datagrid-cell {
-      clr-icon {
+      cds-icon {
         margin-top: (-1 * $clr_baselineRem_0_125) - $clr_baselineRem_1px;
         margin-bottom: -1 * $clr_baselineRem_0_125;
         transform: translateY(-1 * $clr_baselineRem_1px);
@@ -1394,7 +1405,7 @@
       }
     }
     .datagrid-signpost-trigger .signpost .signpost-trigger {
-      clr-icon:not([shape='info-circle'], [shape='exclamation-triangle'], [shape='exclamation-circle'], [shape='check-circle'], [shape='info'], [shape='error']) {
+      cds-icon:not([shape='info-circle'], [shape='exclamation-triangle'], [shape='exclamation-circle'], [shape='check-circle'], [shape='info'], [shape='error']) {
         @include equilateral($clr_baselineRem_0_875);
       }
     }
@@ -1685,7 +1696,7 @@
       justify-content: flex-end;
 
       .btn.btn-link {
-        @include css-var(color, clr-modal-close-color, $clr-modal-close-color, $clr-use-custom-properties);
+        @include css-var(--color, clr-modal-close-color, $clr-modal-close-color, $clr-use-custom-properties);
         margin-top: $clr_baselineRem_0_667;
         margin-bottom: 0;
         padding-right: 0;
@@ -1717,7 +1728,7 @@
 
         .datagrid-detail-caret-icon {
           @include css-var(
-            color,
+            --color,
             clr-datagrid-detail-caret-icon-open-icon-color,
             $clr-datagrid-detail-caret-icon-open-icon-color,
             $clr-use-custom-properties
@@ -1727,7 +1738,7 @@
     }
 
     .datagrid-detail-caret-icon {
-      @include css-var(color, clr-datagrid-icon-color, $clr-datagrid-icon-color, $clr-use-custom-properties);
+      @include css-var(--color, clr-datagrid-icon-color, $clr-datagrid-icon-color, $clr-use-custom-properties);
       // nudge down for vertical alignment...
       margin-top: $clr_baselineRem_0_125 - $clr_baselineRem_1px;
     }
@@ -1988,7 +1999,7 @@
         }
       }
 
-      clr-icon {
+      cds-icon {
         vertical-align: middle;
         transform: translate3d(0px, -1px, 0);
       }

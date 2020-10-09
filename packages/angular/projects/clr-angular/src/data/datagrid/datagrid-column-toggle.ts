@@ -33,7 +33,7 @@ import { ClrDatagridColumnToggleButton } from './datagrid-column-toggle-button';
       [attr.aria-controls]="popoverId"
       [attr.aria-owns]="popoverId"
     >
-      <clr-icon shape="view-columns" [attr.title]="commonStrings.keys.pickColumns"></clr-icon>
+      <cds-icon shape="view-columns" [attr.title]="commonStrings.keys.pickColumns"></cds-icon>
     </button>
     <div
       class="column-switch"
@@ -55,7 +55,7 @@ import { ClrDatagridColumnToggleButton } from './datagrid-column-toggle-button';
           type="button"
           [attr.aria-label]="commonStrings.keys.close"
         >
-          <clr-icon shape="close" [attr.title]="commonStrings.keys.close"></clr-icon>
+          <cds-icon shape="window-close" [attr.title]="commonStrings.keys.close"></cds-icon>
         </button>
       </div>
       <ul class="switch-content list-unstyled">

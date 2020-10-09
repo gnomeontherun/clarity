@@ -6,6 +6,7 @@ const del = require('del');
 const fs = require('fs');
 const PNG = require('pngjs').PNG;
 const pixelmatch = require('pixelmatch');
+const minimatch = require('minimatch');
 const sharp = require('sharp');
 
 const argv = require('minimist')(process.argv.slice(2), {
@@ -17,6 +18,7 @@ const argv = require('minimist')(process.argv.slice(2), {
     href: 'http://localhost:4200/',
     ref: './references',
     compare: false,
+    filter: false,
     threshold: 0.05,
   },
 });
@@ -29,6 +31,10 @@ const changes = [];
 const errors = [];
 let browser;
 let tries = 0;
+const defaultViewport = {
+  width: 1240,
+  height: 1600,
+};
 
 function compare(name, file) {
   const ref = PNG.sync.read(fs.readFileSync(path.join(refPath, file)));
@@ -56,6 +62,15 @@ function getUrl(item) {
   } else {
     return item;
   }
+}
+
+async function delay(item) {
+  let timeout = 0;
+  if (item.delay) {
+    timeout = item.delay;
+  }
+
+  return new Promise(resolve => setTimeout(resolve, timeout));
 }
 
 async function processOverlays(test, outFile) {
@@ -89,10 +104,7 @@ async function clean() {
 
 async function launch() {
   return puppeteer.launch({
-    defaultViewport: {
-      width: 1240,
-      height: 1600,
-    },
+    defaultViewport,
   });
 }
 
@@ -101,11 +113,17 @@ async function capture(test) {
   const url = getUrl(test);
   const file = `${url.replace(/\//g, '-')}.png`;
 
+  if (test.viewport) {
+    await page.setViewport(test.viewport);
+  }
+
   try {
     console.log(`Capturing page ${url}`);
     const outFile = path.join(outPath, file);
     await page.goto(`${argv.href}${url}`);
+    await delay(test);
     await page.screenshot({ path: outFile });
+    await page.setViewport(defaultViewport);
 
     await processOverlays(test, outFile);
 
@@ -133,7 +151,9 @@ async function run() {
   console.log(`Testing ${argv.href}, capturing ${tests.length}, and storing in ${outPath}`);
 
   for (const test of tests) {
-    await capture(test);
+    if (!argv.filter || (argv.filter && minimatch(getUrl(test), argv.filter))) {
+      await capture(test);
+    }
   }
 
   if (changes.length) {

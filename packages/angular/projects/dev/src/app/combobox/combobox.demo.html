@@ -32,8 +32,8 @@
     <clr-combobox [(ngModel)]="vertical.three" name="three" required [disabled]="disabled">
       <clr-options>
         <clr-option *clrOptionItems="let state of states; field:'name'" [clrValue]="state">
-          <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-          <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+          <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+          <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
         </clr-option>
       </clr-options>
     </clr-combobox>
@@ -54,12 +54,12 @@
       (clrOpenChange)="$event ? fetchStates() : null"
     >
       <ng-container *clrOptionSelected="let selected"
-        ><clr-icon shape="house" role="img" aria-label="welcome home"></clr-icon> {{selected?.name}}</ng-container
+        ><cds-icon shape="home" role="img" aria-label="welcome home"></cds-icon> {{selected?.name}}</ng-container
       >
       <clr-options>
         <clr-option *clrOptionItems="let state of asyncStates$ | async; field:'name'" [clrValue]="state">
-          <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-          <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+          <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+          <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
         </clr-option>
       </clr-options>
     </clr-combobox>
@@ -71,12 +71,12 @@
     <label>Favorite States</label>
     <clr-combobox [(ngModel)]="vertical.five" name="five" clrMulti="true" required [disabled]="disabled">
       <ng-container *clrOptionSelected="let selected">
-        <clr-icon shape="house" role="img" aria-label="welcome home"></clr-icon> {{selected?.name}}
+        <cds-icon shape="home" role="img" aria-label="welcome home"></cds-icon> {{selected?.name}}
       </ng-container>
       <clr-options>
         <clr-option *clrOptionItems="let state of states; field:'name'" [clrValue]="state">
-          <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-          <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+          <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+          <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
         </clr-option>
       </clr-options>
     </clr-combobox>
@@ -119,8 +119,8 @@
     <clr-combobox [(ngModel)]="horizontal.three" name="three" required [disabled]="disabled">
       <clr-options>
         <clr-option *clrOptionItems="let state of states; field:'name'" [clrValue]="state">
-          <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-          <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+          <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+          <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
         </clr-option>
       </clr-options>
     </clr-combobox>
@@ -141,12 +141,12 @@
       (clrOpenChange)="$event ? fetchStates() : null"
     >
       <ng-container *clrOptionSelected="let selected"
-        ><clr-icon shape="house" role="img" aria-label="welcome home"></clr-icon> {{selected?.name}}</ng-container
+        ><cds-icon shape="home" role="img" aria-label="welcome home"></cds-icon> {{selected?.name}}</ng-container
       >
       <clr-options>
         <clr-option *clrOptionItems="let state of asyncStates$ | async; field:'name'" [clrValue]="state">
-          <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-          <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+          <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+          <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
         </clr-option>
       </clr-options>
     </clr-combobox>
@@ -158,12 +158,12 @@
     <label>Favorite States</label>
     <clr-combobox [(ngModel)]="horizontal.five" name="five" clrMulti="true" required [disabled]="disabled">
       <ng-container *clrOptionSelected="let selected"
-        ><clr-icon shape="house" role="img" aria-label="welcome home"></clr-icon> {{selected?.name}}</ng-container
+        ><cds-icon shape="home" role="img" aria-label="welcome home"></cds-icon> {{selected?.name}}</ng-container
       >
       <clr-options>
         <clr-option *clrOptionItems="let state of states; field:'name'" [clrValue]="state">
-          <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-          <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+          <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+          <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
         </clr-option>
       </clr-options>
     </clr-combobox>
@@ -198,8 +198,8 @@
     <clr-combobox [(ngModel)]="compact.three" name="three" required [disabled]="disabled">
       <clr-options>
         <clr-option *clrOptionItems="let state of states; field:'name'" [clrValue]="state">
-          <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-          <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+          <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+          <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
         </clr-option>
       </clr-options>
     </clr-combobox>
@@ -220,12 +220,12 @@
       (clrOpenChange)="$event ? fetchStates() : null"
     >
       <ng-container *clrOptionSelected="let selected"
-        ><clr-icon shape="house" role="img" aria-label="welcome home"></clr-icon> {{selected?.name}}</ng-container
+        ><cds-icon shape="home" role="img" aria-label="welcome home"></cds-icon> {{selected?.name}}</ng-container
       >
       <clr-options>
         <clr-option *clrOptionItems="let state of asyncStates$ | async; field:'name'" [clrValue]="state">
-          <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-          <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+          <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+          <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
         </clr-option>
       </clr-options>
     </clr-combobox>
@@ -237,12 +237,12 @@
     <label>Favorite States</label>
     <clr-combobox [(ngModel)]="compact.five" name="five" clrMulti="true" required [disabled]="disabled">
       <ng-container *clrOptionSelected="let selected"
-        ><clr-icon shape="house" role="img" aria-label="welcome home"></clr-icon> {{selected?.name}}</ng-container
+        ><cds-icon shape="home" role="img" aria-label="welcome home"></cds-icon> {{selected?.name}}</ng-container
       >
       <clr-options>
         <clr-option *clrOptionItems="let state of states; field:'name'" [clrValue]="state">
-          <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-          <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+          <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+          <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
         </clr-option>
       </clr-options>
     </clr-combobox>
@@ -258,8 +258,8 @@
     <clr-combobox formControlName="model">
       <clr-options>
         <clr-option *clrOptionItems="let state of states; field:'name'" [clrValue]="state">
-          <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-          <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+          <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+          <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
         </clr-option>
       </clr-options>
     </clr-combobox>
@@ -280,8 +280,8 @@
   >
     <clr-options>
       <clr-option *clrOptionItems="let state of states; field:'name'" [clrValue]="state">
-        <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-        <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+        <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+        <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
       </clr-option>
     </clr-options>
   </clr-combobox>
@@ -296,8 +296,8 @@
     <clr-combobox formControlName="model">
       <clr-options>
         <clr-option *clrOptionItems="let state of states; field:'name'" [clrValue]="state">
-          <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-          <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+          <cds-icon shape="world" role="img" aria-label="World is turning"></cds-icon> {{state.name}}
+          <cds-icon shape="sun" role="img" aria-label="Sun is shining"></cds-icon>
         </clr-option>
       </clr-options>
     </clr-combobox>

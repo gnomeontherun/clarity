@@ -17,8 +17,8 @@ import { isPlatformBrowser } from '@angular/common';
     <ng-content select="clr-timeline-step-header"></ng-content>
     <span class="clr-sr-only">{{ stepTitleText }}</span>
     <ng-container *ngIf="!isProcessing; else processing">
-      <clr-icon [attr.shape]="iconShape" [attr.aria-label]="iconAriaLabel" [attr.aria-current]="iconAriaCurrent">
-      </clr-icon>
+      <cds-icon [attr.shape]="iconShape" [attr.aria-label]="iconAriaLabel" [attr.aria-current]="iconAriaCurrent">
+      </cds-icon>
     </ng-container>
     <div class="clr-timeline-step-body">
       <ng-content select="clr-timeline-step-title"></ng-content>

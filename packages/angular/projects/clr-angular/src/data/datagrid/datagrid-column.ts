@@ -52,7 +52,7 @@ import { DetailService } from './providers/detail.service';
         type="button"
       >
         <ng-container *ngTemplateOutlet="columnTitle"></ng-container>
-        <clr-icon *ngIf="sortIcon" [attr.shape]="sortIcon" class="sort-icon"></clr-icon>
+        <cds-icon *ngIf="sortIcon" [attr.shape]="sortIcon" class="sort-icon"></cds-icon>
       </button>
       <!-- I'm really not happy with that select since it's not very scalable -->
       <ng-content select="clr-dg-filter, clr-dg-string-filter, clr-dg-numeric-filter"></ng-content>

@@ -51,7 +51,7 @@ import { isPlatformBrowser } from '@angular/common';
       [class.datagrid-filter-open]="open"
       [class.datagrid-filtered]="active"
     >
-      <clr-icon [attr.shape]="active ? 'filter-grid-circle' : 'filter-grid'" class="is-solid"></clr-icon>
+      <cds-icon [attr.shape]="active ? 'filter-grid-circle' : 'filter-grid'" class="is-solid"></cds-icon>
     </button>
 
     <div
@@ -62,7 +62,7 @@ import { isPlatformBrowser } from '@angular/common';
     >
       <div class="datagrid-filter-close-wrapper">
         <button type="button" class="close" clrPopoverCloseButton>
-          <clr-icon shape="close" [attr.title]="commonStrings.keys.close"></clr-icon>
+          <cds-icon shape="window-close" [attr.title]="commonStrings.keys.close"></cds-icon>
         </button>
       </div>
 

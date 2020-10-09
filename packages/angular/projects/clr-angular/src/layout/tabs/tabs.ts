@@ -64,11 +64,11 @@ import { ClrTabOverflowContent } from './tab-overflow-content';
               (focus)="openOverflowOnFocus()"
               (click)="toggleOverflowOnClick()"
             >
-              <clr-icon
+              <cds-icon
                 shape="ellipsis-horizontal"
                 [class.is-info]="toggleService.open"
                 [attr.title]="commonStrings.keys.more"
-              ></clr-icon>
+              ></cds-icon>
             </button>
           </li>
           <!--tab links in overflow menu-->

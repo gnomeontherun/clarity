@@ -42,7 +42,7 @@ module.exports = {
     'buttons/tertiary-button',
     'buttons/inverse-button',
     'buttons/button-states',
-    'buttons/button-loading',
+    { url: 'buttons/button-loading', delay: 1000 },
     'buttons/button-sizes',
     'buttons/icons',
     'buttons/icon-buttons',
@@ -315,7 +315,7 @@ module.exports = {
     'vertical-nav/without-expanded-directive',
     'vertical-nav/unstructured-routes',
     'vertical-nav/highlights',
-    'vertical-nav/all',
+    { url: 'vertical-nav/all', viewport: { width: 1240, height: 2600 } },
 
     'wizard/basic',
     'wizard/skip-page',

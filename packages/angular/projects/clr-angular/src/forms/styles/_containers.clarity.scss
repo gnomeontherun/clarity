@@ -104,7 +104,7 @@
 
   .clr-validate-icon {
     @include min-equilateral($clr-forms-icon-size);
-    @include css-var(color, clr-forms-invalid-color, $clr-forms-invalid-color, $clr-use-custom-properties);
+    @include css-var(--color, clr-forms-invalid-color, $clr-forms-invalid-color, $clr-use-custom-properties);
     display: none;
     margin-left: -1 * $clr_baselineRem_1;
   }
