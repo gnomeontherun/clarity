@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016-2020 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2016-2021 VMware, Inc. All Rights Reserved.
  * This software is released under MIT license.
  * The full license information can be found in LICENSE in the root directory of this project.
  */
@@ -15,6 +15,8 @@ import { ControlClassService } from './providers/control-class.service';
 import { Subscription } from 'rxjs';
 import { IfControlStateService, CONTROL_STATE } from './if-control-state/if-control-state.service';
 import { ClrControlSuccess } from './success';
+import { ClrControlError } from './error';
+import { ClrControlHelper } from './helper';
 
 @Directive()
 export abstract class ClrAbstractContainer implements DynamicWrapper, OnDestroy {
@@ -29,9 +31,17 @@ export abstract class ClrAbstractContainer implements DynamicWrapper, OnDestroy 
    * Search for `ClrSuccessComponent` to know do we want to display clr-success or not
    */
   @ContentChild(ClrControlSuccess) controlSuccessComponent: ClrControlSuccess;
+  @ContentChild(ClrControlError) controlErrorComponent: ClrControlError;
+  @ContentChild(ClrControlHelper) controlHelperComponent: ClrControlHelper;
 
   get showHelper(): boolean {
-    return this.state === CONTROL_STATE.NONE || (!this.showInvalid && !this.controlSuccessComponent);
+    // The helper text should basically show if it is available, unless the state is INVALID or VALID with a corresponding error or success component to display
+    return (
+      (!!this.controlHelperComponent && // If there is no helper component, then don't show helper
+        (this.state === CONTROL_STATE.NONE || // Now we know there is a helper component, show it if the state is NONE
+          (this.state === CONTROL_STATE.INVALID && !this.showInvalid))) || // Or if the state is INVALID but there is no error helper
+      (this.state === CONTROL_STATE.VALID && !this.controlSuccessComponent)
+    ); // Or show it if the state is VALID but we don't have success helper
   }
 
   get showValid(): boolean {
@@ -39,7 +49,7 @@ export abstract class ClrAbstractContainer implements DynamicWrapper, OnDestroy 
   }
 
   get showInvalid(): boolean {
-    return this.state === CONTROL_STATE.INVALID;
+    return this.state === CONTROL_STATE.INVALID && !!this.controlErrorComponent;
   }
 
   constructor(
@@ -51,6 +61,12 @@ export abstract class ClrAbstractContainer implements DynamicWrapper, OnDestroy 
     this.subscriptions.push(
       this.ifControlStateService.statusChanges.subscribe((state: CONTROL_STATE) => {
         this.state = state;
+        this.ngControlService.setHelpers({
+          show: this.showInvalid || this.showHelper || this.showValid,
+          showInvalid: this.showInvalid,
+          showHelper: this.showHelper,
+          showValid: this.showValid,
+        });
       })
     );
 

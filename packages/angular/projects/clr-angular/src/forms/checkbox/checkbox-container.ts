@@ -1,16 +1,18 @@
 /**
- * Copyright (c) 2016-2020 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2016-2021 VMware, Inc. All Rights Reserved.
  * This software is released under MIT license.
  * The full license information can be found in LICENSE in the root directory of this project.
  */
 
-import { Component, Input, Optional } from '@angular/core';
+import { Component, ContentChildren, Input, Optional, QueryList } from '@angular/core';
 
 import { ControlClassService } from '../common/providers/control-class.service';
 import { NgControlService } from '../common/providers/ng-control.service';
 import { ClrAbstractContainer } from '../common/abstract-container';
 import { LayoutService } from '../common/providers/layout.service';
 import { IfControlStateService } from '../common/if-control-state/if-control-state.service';
+import { ClrCheckbox } from './checkbox';
+import { ContainerIdService } from '../common/providers/container-id.service';
 
 @Component({
   selector: 'clr-checkbox-container,clr-toggle-container',
@@ -44,11 +46,16 @@ import { IfControlStateService } from '../common/if-control-state/if-control-sta
     '[class.clr-form-control]': 'true',
     '[class.clr-form-control-disabled]': 'control?.disabled',
     '[class.clr-row]': 'addGrid()',
+    '[attr.role]': 'role',
+    '[attr.aria-labeledby]': 'labelId',
   },
-  providers: [IfControlStateService, NgControlService, ControlClassService],
+  providers: [IfControlStateService, ContainerIdService, NgControlService, ControlClassService],
 })
 export class ClrCheckboxContainer extends ClrAbstractContainer {
   private inline = false;
+  role = null;
+
+  @ContentChildren(ClrCheckbox, { descendants: true }) checkboxes: QueryList<ClrCheckbox>;
 
   constructor(
     @Optional() protected layoutService: LayoutService,
@@ -57,6 +64,17 @@ export class ClrCheckboxContainer extends ClrAbstractContainer {
     protected ifControlStateService: IfControlStateService
   ) {
     super(ifControlStateService, layoutService, controlClassService, ngControlService);
+  }
+
+  ngAfterContentInit() {
+    this.setAriaRoles();
+  }
+
+  labelId = '';
+  private setAriaRoles() {
+    console.log(this.label);
+    this.role = this.checkboxes.length ? 'group' : null;
+    this.labelId = this.label.idAttr;
   }
 
   /*
