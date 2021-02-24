@@ -197,7 +197,7 @@ module.exports = class Runner {
       /* Create new page and navigate to it. */
       const page = await this.puppet.newPage();
       await page.goto(`${this.config.baseUrl}${url}`, {
-        waitUntil: ['load', 'domcontentloaded'],
+        waitUntil: ['networkidle0'],
       });
 
       /**
@@ -209,11 +209,13 @@ module.exports = class Runner {
         await this._disabledCSSAnimations(page);
       }
 
+      // await page.waitForNavigation({waitUntil: 'networkidle0'})
+
       /**
        * If there is a selector passed, use it to locate element and take screenshot
        * only on that element and ignore everything else.
        */
-      if (options.selector !== '' || this.globalOptions.selector !== '') {
+      if (options.selector || this.globalOptions.selector) {
         const query = options.selector || this.globalOptions.selector;
         await page.waitForSelector(query);
         const selector = await page.$(query);
@@ -305,6 +307,12 @@ module.exports = class Runner {
    * @param {string} url convert url into filename with extension
    */
   _testImage(url) {
+    // Trim leading and trailing slashes
+    url = url.replace(/^\/|\/$/, '');
+    // Set index to have a name
+    if (url === '') {
+      url = 'index';
+    }
     return `${url.replace(/\//g, '-')}.png`;
   }
 

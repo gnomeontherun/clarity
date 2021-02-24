@@ -51,8 +51,8 @@ module.exports = {
     'vuepress-plugin-table-of-contents',
     '@vuepress/active-header-links',
     '@vuepress/last-updated',
-    [
-      '@vuepress/pwa',
+    [ // Make this plugin conditional
+      '@vuepress/pwa', (process.env.DISABLE_PWA) ? false :
       {
         serviceWorker: true,
         updatePopup: true,

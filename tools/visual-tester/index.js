@@ -3,17 +3,18 @@ const glob = require('glob');
 const Runner = require('./src/runner');
 
 const RUNNER_CONFIG = {
-  BASE_PATH: path.join(__dirname, 'snapshots/dev/base'),
-  TMP_PATH: path.join(__dirname, 'snapshots/dev/current'),
-  DIFF_PATH: path.join(__dirname, 'snapshots/dev/diff'),
-  REPORTER: 'dot',
+  BASE_PATH: path.join(__dirname, 'snapshots/base'),
+  TMP_PATH: path.join(__dirname, 'snapshots/current'),
+  DIFF_PATH: path.join(__dirname, 'snapshots/diff'),
+  REPORTER: 'console',
 };
 
 console.log('Dirname', __dirname);
 
 const argv = require('minimist')(process.argv.slice(2), {
   default: {
-    baseUrl: 'http://localhost:4200/',
+    selector: '',
+    baseUrl: 'http://localhost:8008/',
     reporter: RUNNER_CONFIG.REPORTER,
     overwrite: false,
     basePath: RUNNER_CONFIG.BASE_PATH,

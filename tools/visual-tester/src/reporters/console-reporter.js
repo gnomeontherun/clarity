@@ -9,7 +9,7 @@ module.exports = class ConsoleReporter extends BaseReporter {
     console.log(`${test} passed.`);
   }
   fail(test, options) {
-    console.error(`${test} faild. ${options.mismatch}`);
+    console.error(`${test} failed. ${options.mismatch}`);
   }
   retry(test, times) {
     console.warn(`${test} retries ${times} times`);
@@ -32,7 +32,8 @@ module.exports = class ConsoleReporter extends BaseReporter {
         }
       });
       console.log(`\n\t${errors.length} faild tests\n`);
+    } else {
+      console.log(`\n everything is OK no failing tests`);
     }
-    console.log(`\n everything is OK no failing tests`);
   }
 };

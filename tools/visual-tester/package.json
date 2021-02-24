@@ -4,12 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "prestart": "yarn server:start",
+    "start": "node index",
+    "poststart": "yarn server:stop",
+    "server:start": "./server-start.sh",
+    "server:stop": "./server-stop.sh",
+    "preupdate": "yarn server:start",
+    "update": "node index --overwrite=true",
+    "postupdate": "yarn server:stop"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "fast-xml-parser": "~3.0.0",
     "minimist": "^1.2.5",
     "mkdirp": "^1.0.4",
     "mz": "^2.7.0",

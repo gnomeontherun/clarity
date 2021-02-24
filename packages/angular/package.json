@@ -26,7 +26,7 @@
     "build:lib:cds": "yarn run generate:core-ng-modules && ng build cds-angular --prod",
     "build:adoption": "ng build clarity-adoption --prod",
     "generate:core-ng-modules": "node ../../scripts/core-ng-module-generator && prettier --write ./projects/cds-angular/src/cds",
-    "dev": "ng build dev --prod --progress=false",
+    "dev": "ng build dev --prod --progress=false --baseHref='/dev/'",
     "dev:dark": "ng build dev -c dark --prod --progress=false",
     "test": "npm-run-all test:unit:clr test:unit:cds test:golden",
     "test:unit:clr": "ng test clr-angular --watch false",

@@ -11,6 +11,7 @@
     "start": "vuepress dev --no-cache --open",
     "prebuild": "ts-node --project build/tsconfig.parse.json build/parse/website-demos.ts",
     "build": "vuepress build",
+    "visual": "DISABLE_PWA=true vuepress build",
     "lint": "markdownlint '**/*.md' --ignore 'node_modules'"
   },
   "dependencies": {
